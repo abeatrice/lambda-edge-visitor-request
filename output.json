@@ -1,0 +1,78 @@
+{
+    "headers": {
+        "access-control-allow-credentials": [
+            {
+                "key": "Access-Control-Allow-Credentials",
+                "value": "true"
+            }
+        ],
+        "access-control-allow-origin": [
+            {
+                "key": "Access-Control-Allow-Origin",
+                "value": "*"
+            }
+        ],
+        "date": [
+            {
+                "key": "Date",
+                "value": "Mon, 13 Jan 2020 20:14:56 GMT"
+            }
+        ],
+        "referrer-policy": [
+            {
+                "key": "Referrer-Policy",
+                "value": "no-referrer-when-downgrade"
+            }
+        ],
+        "server": [
+            {
+                "key": "Server",
+                "value": "ExampleCustomOriginServer"
+            }
+        ],
+        "x-content-type-options": [
+            {
+                "key": "X-Content-Type-Options",
+                "value": "nosniff"
+            }
+        ],
+        "x-frame-options": [
+            {
+                "key": "X-Frame-Options",
+                "value": "DENY"
+            }
+        ],
+        "x-xss-protection": [
+            {
+                "key": "X-XSS-Protection",
+                "value": "1; mode=block"
+            }
+        ],
+        "age": [
+            {
+                "key": "Age",
+                "value": "2402"
+            }
+        ],
+        "content-type": [
+            {
+                "key": "Content-Type",
+                "value": "text/html; charset=utf-8"
+            }
+        ],
+        "content-length": [
+            {
+                "key": "Content-Length",
+                "value": "9593"
+            }
+        ],
+        "set-cookie": [
+            {
+                "key": "Set-Cookie",
+                "value": "visitor_id=40676e53-4e2e-1441-fb19-45c27b5c597a;expires=Sat, 11 Jun 2022 17:06:31 GMT;max-age=31536000"
+            }
+        ]
+    },
+    "status": "200",
+    "statusDescription": "OK"
+}
