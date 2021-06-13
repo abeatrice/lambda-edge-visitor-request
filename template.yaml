@@ -5,6 +5,6 @@ Resources:
   VisitorTrackingFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: visitor-tracking/
+      CodeUri: visitor-request/
       Handler: app.handler
       Runtime: nodejs12.x
