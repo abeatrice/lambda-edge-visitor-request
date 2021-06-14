@@ -48,15 +48,16 @@ const getCookieInfo = (headers, requestId) => {
 
 const hasVisitorId = headers => {
   let cookieArray;
+  let found = false;
   if (headers.cookie && headers.cookie.length > 0) {
     cookieArray = headers.cookie[0].value.split(';');
     cookieArray.forEach(ar => {
-        if (ar.includes('visitor_id')) {
-          return true;
+      if (ar.includes('visitor_id')) {
+          found = true;
         }
     });
   }
-  return false;
+  return found;
 }
 
 /**

@@ -33,7 +33,7 @@ describe('Test Viewer Request', function () {
                 "cookie": [
                   {
                     "key": "cookie",
-                    "value": "visitor_id=8f02391c-505d-1758-a3b3-4fd49e8ecb7d;"
+                    "value": "visitor_id=8f02391c-505d-1758-a3b3-4fd49e8ecb7d; otherkey=othervalue; otherid=12345678-1234-12345-1234-123456789012;"
                   }
                 ]
               }
@@ -69,20 +69,18 @@ describe('Test Viewer Request', function () {
     });
   });
 
-  //todo
-  // it('uses existing visitorId if set in cookie', () => {
-  //   let existingVistitorId;
-  //   app.handler(viewerRequestVisitorIdExistsEvent, context, (err, result) => {
-  //     console.log(result)
-  //     existingVistitorId = viewerRequestVisitorIdExistsEvent.Records[0].cf.request.headers.cookie[0].value;
-  //     try {
-  //       expect(result.headers.cookie).to.eql([{
-  //         key: 'cookie',
-  //         value: existingVistitorId
-  //       }]);
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   });
-  // });
+  it('uses existing visitorId if set in cookie', () => {
+    let existingVistitorId;
+    app.handler(viewerRequestVisitorIdExistsEvent, context, (err, result) => {
+      existingVistitorId = viewerRequestVisitorIdExistsEvent.Records[0].cf.request.headers.cookie[0].value;
+      try {
+        expect(result.headers.cookie).to.eql([{
+          key: 'cookie',
+          value: existingVistitorId
+        }]);
+      } catch (error) {
+        throw error;
+      }
+    });
+  });
 });
