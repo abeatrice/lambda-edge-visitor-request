@@ -56,7 +56,7 @@ describe('Test Viewer Request', function () {
     });
   });
 
-  it('sets cookie visitorId to awsRequestId when cookie is not set', () => {
+  it('sets cookie visitor_id to awsRequestId when cookie is not set', () => {
     app.handler(viewerRequestEvent, context, (err, result) => {
       try {
         expect(result.headers.cookie).to.eql([{
