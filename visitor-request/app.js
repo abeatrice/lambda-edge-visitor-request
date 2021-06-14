@@ -46,6 +46,19 @@ const getCookieInfo = (headers, requestId) => {
   return getRandomHexId(16);
 };
 
+const hasVisitorId = headers => {
+  let cookieArray;
+  if (headers.cookie && headers.cookie.length > 0) {
+    cookieArray = headers.cookie[0].value.split(';');
+    cookieArray.forEach(ar => {
+        if (ar.includes('visitor_id')) {
+          return true;
+        }
+    });
+  }
+  return false;
+}
+
 /**
  *
  * @param {*} event 'Automagically provided by AWS'
@@ -61,11 +74,12 @@ exports.handler = (event, context, callback) => {
     headers['cookie'] = [];
   }
 
-  //what happens if cookie exists?
-  headers['cookie'].push({
-    key: 'cookie',
-    value: `${getCookieInfo(headers, context.awsRequestId)}`
-  });
+  if(!hasVisitorId(headers)) {
+    headers['cookie'].push({
+      key: 'cookie',
+      value: `${getCookieInfo(headers, context.awsRequestId)}`
+    });
+  }
 
   // console.log("request: \n" + JSON.stringify(request, null, 2));
   callback(null, request);

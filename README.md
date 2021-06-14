@@ -5,7 +5,7 @@
 use the SAM CLI to invoke the function locally with a test event in the events dir
 
 ```bash
-$ sam local invoke VisitorTrackingFunction --event events/viewer_response_event.json
+$ sam local invoke VisitorTrackingFunction --event events/viewer_request_cookie_exists.json
 ```
 
 ## Tests
