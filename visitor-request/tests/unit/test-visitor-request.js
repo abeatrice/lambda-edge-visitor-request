@@ -69,14 +69,14 @@ describe('Test Viewer Request', function () {
     });
   });
 
-  it('uses existing visitorId if set in cookie', () => {
-    let existingVistitorId;
+  it('does not alter cookies if visitorId is already set in cookie', () => {
+    let originalCookies;
     app.handler(viewerRequestVisitorIdExistsEvent, context, (err, result) => {
-      existingVistitorId = viewerRequestVisitorIdExistsEvent.Records[0].cf.request.headers.cookie[0].value;
+      originalCookies = viewerRequestVisitorIdExistsEvent.Records[0].cf.request.headers.cookie[0].value;
       try {
         expect(result.headers.cookie).to.eql([{
           key: 'cookie',
-          value: existingVistitorId
+          value: originalCookies
         }]);
       } catch (error) {
         throw error;
